@@ -134,6 +134,7 @@ input[type="tel"]:focus {
 .btn-main:hover {
   background: transparent;
   color: #fff;
+
   border-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -155,7 +156,7 @@ input[type="tel"]:focus {
 }
 
 .btn-main-border:hover {
-  border-color: #e1a34c;
+  border-color: #b56c05;
   background: #e1a34c;
 }
 
@@ -281,14 +282,22 @@ a:focus {
 }
 
 .navbar-nav .nav-link {
-  text-transform: capitalize;
-  font-size: 18px;
-  letter-spacing: 0.5px;
-  color: #ffffff;
-  padding: 10px 15px !important;
+  --b: 0.1em;   /* the thickness of the line */
+  --c: #1095c1; /* the color */
+  
+  color: #ffffff00;
+  padding-block: var(--b);
+  background: 
+    linear-gradient(var(--c) 50%,#ffffff 0) 0% calc(100% - var(--_p,0%))/100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
+  -webkit-background-clip: text,padding-box;
+          background-clip: text,padding-box;
+  transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
 }
 .navbar-nav .nav-link:hover {
-  color: #aa6f1d;
+  --_p: 100%;
+  --_s: .3s
+
 }
 
 .nav-social a {
@@ -324,13 +333,17 @@ a:focus {
 }
 
 .slider-img:before {
-  position: absolute;
+  position: relative;
   content: "";
   right: -20px;
   top: 20px;
   border: 10px solid rgba(255, 255, 255, 0.6);
   width: 100%;
   height: 100%;
+  
+}
+.slider-img:before:hover {
+  
 }
 
 .head-trans {
